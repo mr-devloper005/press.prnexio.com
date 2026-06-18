@@ -12,18 +12,33 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function LoginPage() {
   return (
     <EditableSiteShell>
-      <main className="bg-[#f7f4ef] text-[#111]">
-        <section className="mx-auto grid min-h-[calc(100vh-12rem)] max-w-[var(--editable-container)] border-x border-black bg-white lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="flex flex-col justify-center border-b border-black bg-[#c92f2f] p-8 text-white sm:p-12 lg:border-b-0 lg:border-r lg:p-16">
-            <p className="text-xs font-black uppercase tracking-[0.28em]">{pagesContent.auth.login.badge}</p>
-            <h1 className="editorial-brand mt-5 max-w-xl text-6xl font-black leading-[0.92] tracking-[-0.055em] sm:text-8xl">{pagesContent.auth.login.title}</h1>
-            <p className="mt-6 max-w-lg text-sm font-semibold leading-8 text-white/75">{pagesContent.auth.login.description}</p>
+      <main className="bg-[var(--slot4-page-bg)] text-[#111]">
+        <section className="mx-1 bg-white sm:mx-4">
+          <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-8 lg:py-24">
+            <div className="text-center lg:text-left">
+              <p className="editorial-kicker text-xl text-[var(--slot4-accent)]">{pagesContent.auth.login.badge}</p>
+              <h1 className="editorial-serif mx-auto mt-5 max-w-4xl text-5xl leading-[1.04] tracking-[-.035em] sm:text-6xl lg:mx-0 lg:text-[4.55rem]">{pagesContent.auth.login.title}</h1>
+              <p className="mx-auto mt-5 max-w-2xl text-2xl leading-8 text-[var(--slot4-muted-text)] lg:mx-0">{pagesContent.auth.login.description}</p>
+            </div>
+            <aside className="hidden border-l border-[var(--editorial-rule)] pl-8 lg:block">
+              <p className="editorial-serif text-3xl leading-tight">Return to your reading and publishing workspace.</p>
+              <Link href="/signup" className="fa-link-underline mt-8 inline-flex font-bold">{pagesContent.auth.login.createCta}</Link>
+            </aside>
           </div>
-          <div className="flex flex-col justify-center p-7 sm:p-12 lg:p-16">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#c92f2f]">Member access</p>
-            <h2 className="editorial-serif mt-3 text-4xl font-black">{pagesContent.auth.login.formTitle}</h2>
-            <EditableLocalLoginForm />
-            <p className="mt-5 border-t border-black pt-5 text-sm text-black/65">New here? <Link href="/signup" className="font-black text-[#c92f2f] underline-offset-4 hover:underline">{pagesContent.auth.login.createCta}</Link></p>
+        </section>
+
+        <section className="bg-[var(--slot4-page-bg)]">
+          <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[300px_minmax(0,1fr)] lg:px-8 lg:py-20">
+            <aside className="border-t border-[var(--editorial-rule)] pt-6">
+              <p className="editorial-kicker">Account</p>
+              <h2 className="editorial-serif mt-4 text-3xl leading-tight">A clean member doorway for publishing and browsing.</h2>
+            </aside>
+            <div className="bg-white p-7 sm:p-12 lg:p-16">
+              <p className="editorial-kicker text-[var(--slot4-accent)]">Member access</p>
+              <h2 className="editorial-serif mt-3 text-4xl">{pagesContent.auth.login.formTitle}</h2>
+              <EditableLocalLoginForm />
+              <p className="mt-5 border-t border-[var(--editorial-rule)] pt-5 text-sm text-black/65">New here? <Link href="/signup" className="font-black text-[var(--slot4-accent)] underline-offset-4 hover:underline">{pagesContent.auth.login.createCta}</Link></p>
+            </div>
           </div>
         </section>
       </main>
