@@ -87,28 +87,35 @@ export default async function SearchPage({ searchParams }: { searchParams?: Prom
 
   return (
     <EditableSiteShell>
-      <main className="min-h-screen bg-[#f7f4ef] text-black">
-        <section className="mx-auto max-w-[var(--editable-container)] border-x border-black bg-[#f7f4ef]">
-          <div className="grid border-b border-black bg-white md:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <div className="h-full bg-[#c92f2f] p-7 text-white sm:p-10 lg:p-14">
-                <p className="text-xs font-black uppercase tracking-[0.28em]">{pagesContent.search.hero.badge}</p>
-                <h1 className="editorial-brand mt-5 text-6xl font-black leading-[0.9] tracking-[-0.055em] sm:text-8xl">{pagesContent.search.hero.title}</h1>
-                <p className="mt-6 max-w-xl text-base font-semibold leading-8 text-white/75">{pagesContent.search.hero.description}</p>
-              </div>
+      <main className="min-h-screen bg-[var(--slot4-page-bg)] text-black">
+        <section className="mx-1 bg-white sm:mx-4">
+          <div className="mx-auto grid max-w-[1280px] gap-14 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,.88fr)] lg:px-8 lg:py-24">
+            <div className="text-center lg:text-left">
+              <p className="editorial-kicker text-xl text-[var(--slot4-accent)]">{pagesContent.search.hero.badge}</p>
+              <h1 className="editorial-serif mx-auto mt-5 max-w-4xl text-5xl leading-[1.04] tracking-[-.035em] sm:text-6xl lg:mx-0 lg:text-[4.55rem]">{pagesContent.search.hero.title}</h1>
+              <p className="mx-auto mt-5 max-w-2xl text-2xl leading-8 text-[var(--slot4-muted-text)] lg:mx-0">{pagesContent.search.hero.description}</p>
             </div>
-            <form action="/search" className="self-center p-6 sm:p-10 lg:p-14">
+            <aside className="border-t border-[var(--editorial-rule)] pt-6">
+              <p className="editorial-serif text-3xl leading-tight">Search the archive by keyword, category, or content type.</p>
+              <p className="mt-5 text-sm font-bold leading-7 text-[var(--slot4-muted-text)]">{results.length} matching posts are available from the current feed.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section className="bg-[var(--slot4-page-bg)]">
+          <div className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 lg:px-8">
+            <form action="/search" className="bg-white p-5 sm:p-7">
               <input type="hidden" name="master" value="1" />
-              <label className="flex items-center gap-3 border border-black bg-white px-4 py-3">
+              <label className="flex items-center gap-3 border border-[var(--editorial-rule)] bg-white px-4 py-3">
                 <Search className="h-5 w-5 opacity-45" />
                 <input name="q" defaultValue={query} placeholder={pagesContent.search.hero.placeholder} className="min-w-0 flex-1 bg-transparent text-base font-bold outline-none placeholder:text-current/35" />
               </label>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                <label className="flex items-center gap-2 border border-black bg-white px-4 py-3">
+                <label className="flex items-center gap-2 border border-[var(--editorial-rule)] bg-white px-4 py-3">
                   <Filter className="h-4 w-4 opacity-45" />
                   <input name="category" defaultValue={category} placeholder="Category" className="min-w-0 flex-1 bg-transparent text-sm font-bold outline-none placeholder:text-current/35" />
                 </label>
-                <select name="task" defaultValue={task} className="border border-black bg-white px-4 py-3 text-sm font-black outline-none">
+                <select name="task" defaultValue={task} className="border border-[var(--editorial-rule)] bg-white px-4 py-3 text-sm font-black outline-none">
                   <option value="">All content types</option>
                   {enabledTasks.map((item) => <option key={item.key} value={item.key}>{item.label}</option>)}
                 </select>
@@ -117,21 +124,21 @@ export default async function SearchPage({ searchParams }: { searchParams?: Prom
             </form>
           </div>
 
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b-4 border-black px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-[1280px] flex-wrap items-end justify-between gap-4 border-b border-[var(--editorial-rule)] px-4 py-8 sm:px-6 lg:px-8">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.24em] opacity-50">{results.length} results</p>
-              <h2 className="editorial-brand mt-2 text-4xl font-black tracking-[-0.04em]">{query ? `Results for “${query}”` : pagesContent.search.resultsTitle}</h2>
+              <h2 className="editorial-serif mt-2 text-4xl tracking-[-0.04em]">{query ? `Results for "${query}"` : pagesContent.search.resultsTitle}</h2>
             </div>
             <Link href="/article" className="inline-flex items-center gap-2 border border-black bg-white px-5 py-3 text-xs font-black uppercase">Browse latest <ArrowRight className="h-4 w-4" /></Link>
           </div>
 
           {results.length ? (
-            <div className="grid border-l border-t border-black md:grid-cols-2 xl:grid-cols-3">
+            <div className="mx-auto grid max-w-[1280px] bg-white md:grid-cols-2 xl:grid-cols-3">
               {results.map((post, index) => <SearchResultCard key={post.id || post.slug} post={post} index={index} />)}
             </div>
           ) : (
-            <div className="m-8 border border-dashed border-black bg-white p-10 text-center">
-              <p className="text-2xl font-black tracking-[-0.04em]">No matching posts found.</p>
+            <div className="mx-auto my-8 max-w-[1280px] border border-dashed border-black bg-white p-10 text-center">
+              <p className="editorial-serif text-3xl tracking-[-0.04em]">No matching posts found.</p>
               <p className="mt-3 text-sm font-semibold opacity-60">Try a different keyword, task type, or category.</p>
             </div>
           )}
