@@ -1,23 +1,23 @@
 import type { CSSProperties } from 'react'
 
 export const editableRootStyle = {
-  '--slot4-page-bg': '#f7f4ef',
+  '--slot4-page-bg': '#dcecf8',
   '--slot4-page-text': '#111111',
-  '--slot4-panel-bg': '#efeae3',
-  '--slot4-surface-bg': '#fffdfa',
-  '--slot4-muted-text': '#514e49',
-  '--slot4-soft-muted-text': '#77716a',
-  '--slot4-accent': '#c92f2f',
-  '--slot4-accent-fill': '#c92f2f',
-  '--slot4-accent-soft': '#f3d8d3',
-  '--slot4-dark-bg': '#111111',
+  '--slot4-panel-bg': '#dcecf8',
+  '--slot4-surface-bg': '#ffffff',
+  '--slot4-muted-text': '#334b66',
+  '--slot4-soft-muted-text': '#5f7186',
+  '--slot4-accent': '#df1b13',
+  '--slot4-accent-fill': '#df1b13',
+  '--slot4-accent-soft': '#edf7ff',
+  '--slot4-dark-bg': '#1f1f1f',
   '--slot4-dark-text': '#ffffff',
-  '--slot4-media-bg': '#e4e0da',
-  '--slot4-cream': '#f7f4ef',
-  '--slot4-warm': '#fffdfa',
-  '--slot4-lavender': '#c92f2f',
-  '--slot4-gray': '#ece9e4',
-  '--slot4-body-gradient': 'linear-gradient(180deg, #f7f4ef 0%, #fffdfa 52%, #eeeae4 100%)',
+  '--slot4-media-bg': '#c8e0f3',
+  '--slot4-cream': '#ffffff',
+  '--slot4-warm': '#f7fbff',
+  '--slot4-lavender': '#df1b13',
+  '--slot4-gray': '#d5e8f7',
+  '--slot4-body-gradient': 'linear-gradient(180deg, #dcecf8 0%, #dcecf8 58%, #ffffff 100%)',
 } as CSSProperties
 
 export const editablePalette = {
@@ -50,8 +50,8 @@ export const editablePalette = {
 export const editableDesignContract = {
   shell: {
     page: `min-h-screen ${editablePalette.pageBg} ${editablePalette.pageText}`,
-    section: 'mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10',
-    sectionY: 'py-12 sm:py-16 lg:py-20',
+    section: 'mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8',
+    sectionY: 'py-14 sm:py-20 lg:py-24',
   },
   layout: {
     safeGrid: 'grid gap-px bg-black/15 md:grid-cols-2 xl:grid-cols-3',
@@ -60,9 +60,9 @@ export const editableDesignContract = {
     minRailCard: 'w-[230px] shrink-0 snap-start sm:w-[260px]',
   },
   type: {
-    eyebrow: 'text-[11px] font-black uppercase tracking-[0.2em]',
-    heroTitle: 'text-4xl font-black leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-[5.4rem]',
-    sectionTitle: 'text-3xl font-black leading-none tracking-[-0.045em] sm:text-4xl',
+    eyebrow: 'editorial-kicker text-[11px] font-bold uppercase tracking-[0.2em]',
+    heroTitle: 'editorial-serif text-5xl leading-[0.98] tracking-[-0.03em] sm:text-6xl lg:text-[5.1rem]',
+    sectionTitle: 'editorial-serif text-3xl leading-none tracking-[-0.025em] sm:text-4xl',
     body: 'text-base leading-8',
   },
   surface: {
@@ -80,7 +80,7 @@ export const editableDesignContract = {
     ratio: 'aspect-[4/3]',
   },
   motion: {
-    lift: 'transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_48px_rgba(17,17,17,0.14)]',
+    lift: 'transition duration-300 hover:-translate-y-0.5 hover:text-[var(--slot4-accent)]',
     fade: 'transition duration-300 hover:opacity-75',
   },
 } as const

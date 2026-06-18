@@ -12,18 +12,33 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function SignupPage() {
   return (
     <EditableSiteShell>
-      <main className="bg-[#f7f4ef] text-[#111]">
-        <section className="mx-auto grid min-h-[calc(100vh-12rem)] max-w-[var(--editable-container)] border-x border-black bg-white lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="flex flex-col justify-center border-b border-black p-7 sm:p-12 lg:border-b-0 lg:border-r lg:p-16">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#c92f2f]">Create account</p>
-            <h1 className="editorial-serif mt-3 text-4xl font-black">{pagesContent.auth.signup.formTitle}</h1>
-            <EditableLocalSignupForm />
-            <p className="mt-5 border-t border-black pt-5 text-sm text-black/65">Already have an account? <Link href="/login" className="font-black text-[#c92f2f] underline-offset-4 hover:underline">{pagesContent.auth.signup.loginCta}</Link></p>
+      <main className="bg-[var(--slot4-page-bg)] text-[#111]">
+        <section className="mx-1 bg-white sm:mx-4">
+          <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-8 lg:py-24">
+            <div className="text-center lg:text-left">
+              <p className="editorial-kicker text-xl text-[var(--slot4-accent)]">{pagesContent.auth.signup.badge}</p>
+              <h1 className="editorial-serif mx-auto mt-5 max-w-4xl text-5xl leading-[1.04] tracking-[-.035em] sm:text-6xl lg:mx-0 lg:text-[4.55rem]">{pagesContent.auth.signup.title}</h1>
+              <p className="mx-auto mt-5 max-w-2xl text-2xl leading-8 text-[var(--slot4-muted-text)] lg:mx-0">{pagesContent.auth.signup.description}</p>
+            </div>
+            <aside className="hidden border-l border-[var(--editorial-rule)] pl-8 lg:block">
+              <p className="editorial-serif text-3xl leading-tight">Save details, submit content, and keep publishing from one account.</p>
+              <Link href="/login" className="fa-link-underline mt-8 inline-flex font-bold">{pagesContent.auth.signup.loginCta}</Link>
+            </aside>
           </div>
-          <div className="flex flex-col justify-center bg-[#171717] p-8 text-white sm:p-12 lg:p-16">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#f34a43]">{pagesContent.auth.signup.badge}</p>
-            <h2 className="editorial-brand mt-5 max-w-xl text-6xl font-black leading-[0.92] tracking-[-0.055em] sm:text-8xl">{pagesContent.auth.signup.title}</h2>
-            <p className="mt-6 max-w-lg text-sm font-semibold leading-8 text-white/68">{pagesContent.auth.signup.description}</p>
+        </section>
+
+        <section className="bg-[var(--slot4-page-bg)]">
+          <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:px-8 lg:py-20">
+            <div className="bg-white p-7 sm:p-12 lg:p-16">
+              <p className="editorial-kicker text-[var(--slot4-accent)]">Create account</p>
+              <h1 className="editorial-serif mt-3 text-4xl">{pagesContent.auth.signup.formTitle}</h1>
+              <EditableLocalSignupForm />
+              <p className="mt-5 border-t border-[var(--editorial-rule)] pt-5 text-sm text-black/65">Already have an account? <Link href="/login" className="font-black text-[var(--slot4-accent)] underline-offset-4 hover:underline">{pagesContent.auth.signup.loginCta}</Link></p>
+            </div>
+            <aside className="border-t border-[var(--editorial-rule)] pt-6">
+              <p className="editorial-kicker">Access</p>
+              <h2 className="editorial-serif mt-4 text-3xl leading-tight">A magazine-style account page with the publishing tools close at hand.</h2>
+            </aside>
           </div>
         </section>
       </main>
