@@ -134,7 +134,6 @@ function BackLink({ task }: { task: TaskKey }) {
 
 function ArticleDetail({ task, post, related, comments }: { task: TaskKey; post: SitePost; related: SitePost[]; comments: Array<{ id: string; name: string; comment: string; createdAt: string }> }) {
   const images = getImages(post)
-  const published = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : ''
   return (
     <section className="bg-[var(--slot4-page-bg)]">
       <header className="mx-1 bg-white sm:mx-4">
@@ -146,7 +145,6 @@ function ArticleDetail({ task, post, related, comments }: { task: TaskKey; post:
             {summaryText(post) ? <p className="mx-auto mt-6 max-w-4xl text-2xl leading-9 text-[var(--slot4-muted-text)]">{summaryText(post)}</p> : null}
             <div className="mt-8 text-[13px] font-black uppercase tracking-[0.22em]">
               <span>Editorial Desk</span>
-              {published ? <time className="ml-4 border-l border-black/25 pl-4">{published}</time> : null}
             </div>
           </div>
         </div>
